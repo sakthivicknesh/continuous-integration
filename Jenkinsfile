@@ -82,7 +82,7 @@ pipeline{
                     repository: 'vprofile-repo',
                     credentialsId: 'nexus',
                     artifacts: [
-                        [artifactId: 'vprofile', 
+                        [artifactId: 'vprofile-v2', 
                         classifier: '', 
                         file: 'target/vprofile-v2.war', 
                         type: 'war']
