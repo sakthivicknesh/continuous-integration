@@ -93,4 +93,31 @@ pipeline{
 
 
     }
+
+    post {
+        success {
+            slackSend(
+                color: 'good', 
+                message: "✅ *SUCCESS:* Job '${env.JOB_NAME}' (Build #${env.BUILD_NUMBER})\nCheck console output at: ${env.BUILD_URL}"
+            )
+        }
+        failure {
+            slackSend(
+                color: 'danger', 
+                message: "❌ *FAILED:* Job '${env.JOB_NAME}' (Build #${env.BUILD_NUMBER})\nCheck console output at: ${env.BUILD_URL}"
+            )
+        }
+        unstable {
+            slackSend(
+                color: 'warning', 
+                message: "⚠️ *UNSTABLE:* Job '${env.JOB_NAME}' (Build #${env.BUILD_NUMBER})\nCheck console output at: ${env.BUILD_URL}"
+            )
+        }
+        aborted {
+            slackSend(
+                color: '#808080', 
+                message: "🛑 *ABORTED:* Job '${env.JOB_NAME}' (Build #${env.BUILD_NUMBER})\nCheck console output at: ${env.BUILD_URL}"
+            )
+        }
+    }
 }
