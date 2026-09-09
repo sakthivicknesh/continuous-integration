@@ -76,11 +76,11 @@ pipeline{
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: '172.31.39.217:8081',
+                    nexusUrl: '172.31.35.14:8081',
                     groupId: 'QA',
                     version: '${BUILD_ID}-${BUILD_TIMESTAMP}',
                     repository: 'vprofile-repo',
-                    credentialsId: 'nexus',
+                    credentialsId: 'nexus-jenkins',
                     artifacts: [
                         [artifactId: 'vprofile-v2', 
                         classifier: '', 
